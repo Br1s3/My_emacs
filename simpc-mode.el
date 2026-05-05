@@ -25,6 +25,7 @@
     "int8_t" "uint8_t" "int16_t" "uint16_t" "int32_t" "uint32_t" "int64_t" "uint64_t"
     "uintptr_t"
     "size_t"
+    "ssize_t"
     "va_list"))
 
 (defun simpc-keywords ()

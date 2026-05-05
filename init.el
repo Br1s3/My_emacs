@@ -83,7 +83,10 @@
 (load-file "~/.emacs.d/simpc-mode.el")
 (require 'simpc-mode)
 (add-to-list 'auto-mode-alist '("\\.[hc]\\(pp\\)?\\'" . simpc-mode))
-(add-hook 'simpc-mode 'ac-cc-mode-setup)
+;; (add-to-list 'align-dq-string-modes 'simpc-mode)
+;; (add-to-list 'align-open-comment-modes 'simpc-mode)
+
+;; (add-hook 'simpc-mode 'ac-cc-mode-setup)
 
 ;; (add-hook 'simpc-mode 'ac-mode)
 ;; (add-hook 'ac-mode #'simpc-mode)
@@ -158,3 +161,7 @@
 (setq backup-directory-alist '(("." . "~/.emacs_saves")))
 (global-unset-key (kbd "C-x m")) ;; éviter l'erreur avec la commande pour compiler
 (put 'scroll-left 'disabled nil)
+
+(with-eval-after-load 'magit
+  (transient-append-suffix 'magit-merge "-s"
+    '("-u" "Allow unrelated histories" "--allow-unrelated-histories")))
